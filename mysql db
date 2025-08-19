@@ -1,0 +1,31 @@
+  CREATE DATABASE netmon2025_db;
+
+CREATE USER 'netmon2025_user'@'localhost' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON netmon2025_db.* TO 'netmon2025_user'@'localhost';
+FLUSH PRIVILEGES;
+
+USE netmon2025_db;
+
+-- Table for captured packets
+CREATE TABLE traffic2025_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    src_ip VARCHAR(45),
+    dst_ip VARCHAR(45),
+    protocol VARCHAR(20),
+    packet_size INT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table for anomalies
+CREATE TABLE IF not exists anomaly2025_ips (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(45) UNIQUE,
+    detected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    reason TEXT
+);
+
+ use netmon2025_db;
+SELECT * FROM network_flows;
+SELECT * FROM blocked_ips;
+
+TRUNCATE TABLE network_flows;
