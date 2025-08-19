@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS netmon_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER IF NOT EXISTS 'netmon_user'@'localhost' IDENTIFIED BY 'SAIKIRAN';
+CREATE USER IF NOT EXISTS 'netmon_user'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON netmon_db.* TO 'netmon_user'@'localhost';
 FLUSH PRIVILEGES;
 
@@ -26,3 +26,4 @@ CREATE TABLE IF NOT EXISTS blocked_ips (
   reason VARCHAR(255),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
