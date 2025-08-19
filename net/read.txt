@@ -1,0 +1,8 @@
+mkdir network_anomaly_project
+cd network_anomaly_project
+python -m venv .venv
+.venv\Scripts\activate(for windows only)
+pip install pandas numpy scikit-learn netmiko faker
+
+python network_monitor_live.py
+python api_server.py

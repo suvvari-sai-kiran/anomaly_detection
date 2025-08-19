@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Network Monitor Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js for charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Network Monitor Dashboard</h1>
+
+  <div class="toolbar">
+    <label>API URL:
+      <input id="apiUrl" value="" placeholder="(leave blank for same origin)" />
+    </label>
+    <button id="refreshBtn">Refresh</button>
+    <label><input type="checkbox" id="autoRefresh" checked /> Auto-refresh</label>
+    <div class="actions" style="margin-left:auto">
+      <input id="ipInput" placeholder="IP to (un)block" />
+      <button id="blockBtn">Block</button>
+      <button id="unblockBtn">Unblock</button>
+    </div>
+  </div>
+
+  <!-- Chart Section -->
+  <section>
+    <h2>Traffic Statistics</h2>
+    <div class="charts-container">
+      <div style="flex:1; min-width:300px;">
+        <canvas id="protocolChart"></canvas>
+      </div>
+      <div style="flex:1; min-width:300px;">
+        <canvas id="srcChart"></canvas>
+      </div>
+      <div style="flex:1; min-width:300px;">
+        <canvas id="dstChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Live Network Flows</h2>
+    <div id="flows"></div>
+  </section>
+
+  <section>
+    <h2>Blocked IPs</h2>
+    <div id="blocked"></div>
+  </section>
+
+  <div id="actionMsg" style="padding:12px 20px;"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
